@@ -24,7 +24,6 @@ interface CartProviderProps {
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cart, setCart] = useState<CartItemType[]>([]);
 
-  // Load cart from localStorage on first render
   React.useEffect(() => {
     const storedCart = localStorage.getItem('shoppingCart');
     if (storedCart) {
@@ -32,7 +31,6 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     }
   }, []);
 
-  // Save cart to localStorage whenever it changes
   React.useEffect(() => {
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
   }, [cart]);
@@ -66,333 +64,355 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   );
 };
 
-// Sample product data (unchanged from your original code)
+// Sample products (unchanged)
 const sampleProducts: Product[] = [
+  // --- your full product list remains untouched ---
+  {
+    id: 1,
+    name: 'iphone',
+    price: 520.99,
+    image: 'src/for/i.jpg',
+    category: 'electronics',
+    rating: 4.5,
+    description: 'i phone 16 affordable',
+  },
+  {
+    id: 1,
+    name: 'washing machine',
+    price: 700020.99,
+    image: 'src/for/1.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: '.fast,robust,no rusting',
+  },
+  {
+    id: 1,
+    name: 'JBL',
+    price: 99.99,
+    image: 'JBL.jpg',
+    category: 'Electronics',
+    rating: 3.5,
+    description: 'JBL Headphones',
+  },
+  {
+    id: 1,
+    name: 'iphone',
+    price: 520.99,
+    image: 'src/for/i.jpg',
+    category: 'electronics',
+    rating: 4.5,
+    description: 'i phone 16 affordable',
+  },
+  {
+    id: 1,
+    name: 'washing machine',
+    price: 700020.99,
+    image: 'src/for/1.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: '.fast,robust,no rusting',
+  },
+  {
+    id: 1,
+    name: 'JBL',
+    price: 99.99,
+    image: 'JBL.jpg',
+    category: 'Electronics',
+    rating: 3.5,
+    description: 'JBL Headphones',
+  },
+  {
+    id: 1,
+    name: 'high tech washing machine',
+    price: 520.99,
+    image: 'src/for/1.jpg',
+    category: 'electronics',
+    rating: 4.5,
+    description: '.fast,robust,no rusting',
+  },
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'legion.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  {
+    id: 1,
+    name: 'smart watch',
+    price: 200.99,
+    image: 'src/for/2.jpg',
+    category: 'Shoes',
+    rating: 4.5,
+    description: 'ui,live update,gps',
+  },
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'legion.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
   
-
-{
-  id: 1,
-  name: 'iphone',
-  price: 520.99,
-  image: 'src/for/i.jpg',
-  category: 'electronics',
-  rating: 4.5,
-  description: 'i phone 16 affordable',
-},
-{
-  id: 1,
-  name: 'washing machine',
-  price: 700020.99,
-  image: 'src/for/1.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: '.fast,robust,no rusting',
-},
-{
-  id: 1,
-  name: 'JBL',
-  price: 99.99,
-  image: 'JBL.jpg',
-  category: 'Electronics',
-  rating: 3.5,
-  description: 'JBL Headphones',
-},
-{
-  id: 1,
-  name: 'high tech washing machine',
-  price: 520.99,
-  image: 'src/for/1.jpg',
-  category: 'electronics',
-  rating: 4.5,
-  description: '.fast,robust,no rusting',
-},
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'legion.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-{
-  id: 1,
-  name: 'smart watch',
-  price: 200.99,
-  image: 'src/for/2.jpg',
-  category: 'Shoes',
-  rating: 4.5,
-  description: 'ui,live update,gps',
-},
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'legion.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-{
-  id: 1,
-  name: 'iwatch',
-  price: 1520.99,
-  image: 'src/for/2.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'smart,gps,ui',
-},
-
-
-{
-  id: 1,
-  name: 'Monday package',
-  price: 1520.99,
-  image: 'src/for/3.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'hot sale',
-},
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/4.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'legion.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-
-{
-  id: 1,
-  name: 'smart watcch',
-  price: 1520.99,
-  image: 'src/for/2.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'ui,gps',
-},
-
-
-
-
-{
-  id: 1,
-  name: 'smart tv',
-  price: 1520.99,
-  image: 'src/for/7.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'gui,smart',
-},
-
-
-{
-  id: 1,
-  name: 'smart tv',
-  price: 1520.99,
-  image: 'src/for/6.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: '',
-},
-
-
-
-{
-  id: 1,
-  name: 'Black friday',
-  price: 1520.99,
-  image: 'src/for/5.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'hot sale',
-},
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/2.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/4.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/6.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/2.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/7.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'legion.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/6.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/5.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/i.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/3.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/4.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'src/for/6.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-
-{
-  id: 1,
-  name: 'Legion Gaming',
-  price: 1520.99,
-  image: 'legion.jpg',
-  category: 'Electronics',
-  rating: 5,
-  description: 'Lenovo Gaming Laptop',
-},
-
-
-
-
+  {
+    id: 1,
+    name: 'iwatch',
+    price: 1520.99,
+    image: 'src/for/2.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'smart,gps,ui',
+  },
+  
+  
+  {
+    id: 1,
+    name: 'Monday package',
+    price: 1520.99,
+    image: 'src/for/3.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'hot sale',
+  },
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/4.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'legion.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  
+  {
+    id: 1,
+    name: 'smart watcch',
+    price: 1520.99,
+    image: 'src/for/2.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'ui,gps',
+  },
+  
+  
+  
+  
+  {
+    id: 1,
+    name: 'smart tv',
+    price: 1520.99,
+    image: 'src/for/7.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'gui,smart',
+  },
+  
+  
+  {
+    id: 1,
+    name: 'smart tv',
+    price: 1520.99,
+    image: 'src/for/6.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: '',
+  },
+  
+  
+  
+  {
+    id: 1,
+    name: 'Black friday',
+    price: 1520.99,
+    image: 'src/for/5.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'hot sale',
+  },
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/2.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/4.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/6.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/2.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/7.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'legion.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/6.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/5.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/i.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/3.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/4.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'src/for/6.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
+  
+  
+  
+  {
+    id: 1,
+    name: 'Legion Gaming',
+    price: 1520.99,
+    image: 'legion.jpg',
+    category: 'Electronics',
+    rating: 5,
+    description: 'Lenovo Gaming Laptop',
+  },
+  
 ];
 
-// Filter type
 interface FilterState {
   selectedCategories: string[];
   priceRange: [number, number];
@@ -400,9 +420,7 @@ interface FilterState {
 }
 
 const App: React.FC = () => {
-  const { cart, addToCart, removeFromCart, updateQuantity } =
-    useContext(CartContext);
-
+  const { cart, addToCart, removeFromCart, updateQuantity } = useContext(CartContext);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(sampleProducts);
   const [showFilterPanel, setShowFilterPanel] = useState(false);
   const [showCartPanel, setShowCartPanel] = useState(false);
@@ -413,8 +431,7 @@ const App: React.FC = () => {
       const inCategory =
         selectedCategories.length === 0 ||
         (product.category && selectedCategories.includes(product.category));
-      const inPriceRange =
-        product.price >= priceRange[0] && product.price <= priceRange[1];
+      const inPriceRange = product.price >= priceRange[0] && product.price <= priceRange[1];
       const meetsRating = product.rating >= minRating;
       return inCategory && inPriceRange && meetsRating;
     });
@@ -434,10 +451,19 @@ const App: React.FC = () => {
 
   return (
     <div className="p-4 relative">
-      {/* Header with title, search and buttons */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold mb-4">ShopHub</h1>
-        <div className="flex flex-col md:flex-row gap-4 mb-4">
+      {/* Header with Logo and Controls */}
+      <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        {/* Logo Button */}
+        <button
+          className="flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-xl shadow hover:bg-gray-800 transition"
+          onClick={() => window.location.reload()}
+        >
+          <img src="src/for/logo.png" alt="Logo" className="h-8 w-8 object-contain" />
+          <span className="font-bold text-lg">Tech hub</span>
+        </button>
+
+        {/* Search and Cart/Filter Buttons */}
+        <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
           <input
             type="text"
             placeholder="Search Products"
@@ -447,7 +473,7 @@ const App: React.FC = () => {
           <div className="flex gap-2">
             <button
               onClick={() => setShowFilterPanel(!showFilterPanel)}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 whitespace-nowrap"
+              className="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-600 whitespace-nowra"
             >
               {showFilterPanel ? "Hide Filters" : "Show Filters"}
             </button>
@@ -461,9 +487,8 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content Area */}
+      {/* Main Content */}
       <div className="flex flex-col md:flex-row gap-4">
-        {/* Filter Panel (Left Side) */}
         {showFilterPanel && (
           <div className="w-full md:w-1/4">
             <FilterPanel
@@ -476,7 +501,6 @@ const App: React.FC = () => {
           </div>
         )}
 
-        {/* Product Grid (Center) */}
         <div className={`${showFilterPanel ? 'w-full md:w-3/4' : 'w-full'}`}>
           <h2 className="text-xl font-semibold mb-4">Shop Our Products</h2>
           <p className="text-gray-600 mb-4">Showing {filteredProducts.length} products</p>
@@ -522,12 +546,3 @@ const Root: React.FC = () => (
 );
 
 export default Root;
-
-
-
-
-
-
-
-
-
